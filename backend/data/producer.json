@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Producer 1",
+    "cif": 111111111,
+    "direction": "Avenida rue del percebe"
+  },
+  {
+    "name": "Producer 2",
+    "cif": 222222222,
+    "direction": "Avenida rue del percebe"
+  },
+  {
+    "name": "Producer 3",
+    "cif": 333333333,
+    "direction": "Avenida rue del percebe"
+  }
+]

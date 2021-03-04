@@ -2,7 +2,7 @@ const Product = require("../models/product");
 
 const APIFeatures = require("../utils/apiFeatures"); //! Llamada a apiFeatures
 
-// Create new product => /api/v1/admin/prodcut/new
+// Create new product => /api/v1/admin/product/new
 exports.newProduct = async (req, res, next) => {
   const product = await Product.create(req.body);
   res.status(201).json({
