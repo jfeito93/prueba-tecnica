@@ -4,6 +4,10 @@ const APIFeatures = require("../utils/apiFeatures"); //! Llamada a apiFeatures
 
 // Create new product => /api/v1/admin/product/new
 exports.newProduct = async (req, res, next) => {
+  
+  //!NO RESUELTO - RELACION TABLAS
+  //!req.body.producer = req.producer.id;
+
   const product = await Product.create(req.body);
   res.status(201).json({
     success: true,
