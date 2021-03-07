@@ -4,7 +4,6 @@ const APIFeatures = require("../utils/apiFeatures"); //! Llamada a apiFeatures
 
 // Create new product => /api/v1/admin/product/new
 exports.newProduct = async (req, res, next) => {
-  
   //!NO RESUELTO - RELACION TABLAS
   //!req.body.producer = req.producer.id;
 
@@ -19,7 +18,7 @@ exports.newProduct = async (req, res, next) => {
 exports.getProducts = async (req, res, next) => {
   //! CUANTOS PRODUCTOS ENSEÑAR POR PAGINA
   const resPerPage = 10;
-  const productCount = await Product.countDocuments();
+  const productsCount = await Product.countDocuments();
 
   //! apiFeatures - aqui le indicamos que busque por keyword
   const apiFeatures = new APIFeatures(Product.find(), req.query)
@@ -32,14 +31,27 @@ exports.getProducts = async (req, res, next) => {
 
   const products = await apiFeatures.query; //* ?keyword=apple
 
-  //! Esto nos traerá todos los productos de la coleccion de la base de datos
+  //!PARA EL LOADING DE LA PAGINA HOME DE PRODUCTOS:
+  //!ESTO OBLIGA A QUE LA CARGA DEL LOADING DE PRODUCTOS DURE 2000 MILISEGUNDOS - NO SE SI MERECE
+  /* setTimeout(() => { */
+    res.status(200).json({
+      success: true,
+      productsCount,
+      resPerPage,
+      products,
+    });
+  /* }, 400); //! INDICACION DEL TIEMPO DE APARICION DE LOADER */
+
+  //!ESTE TROZO DE CODIGO DE A CONTINUACION YA NO SIRVE SI SE QUIERE VER UNN CORRECTO FUNCIONAMIENTO DEL LOADING
+
+  /* //! Esto nos traerá todos los productos de la coleccion de la base de datos
   res.status(200).json({
     success: true,
-    count: products.length,
-    productCount,
+    //count: products.length, //! a partir del front ya no hace falta
+    productsCount,
     products,
     //message: "this route will show all products in database.",
-  });
+  }); */
 };
 
 // Get single product details => /api/v1/product/:id

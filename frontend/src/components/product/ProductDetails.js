@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from "react";
-import { Carousel } from "react-bootstrap";
+
+//!solo si usas imagenes, para poder ver varias en el mismo producto
+//import { Carousel } from "react-bootstrap";
 
 import Loader from "../layout/Loader";
 import MetaData from "../layout/MetaData";
@@ -38,6 +40,7 @@ const ProductDetails = ({ match }) => {
         <Loader />
       ) : (
         <Fragment>
+          <MetaData title={product.name} />
           <div className="row f-flex justify-content-around">
             <div className="col-12 col-lg-5 mt-5">
               {/* //!primera alusion a propiedades del product */}
@@ -74,6 +77,11 @@ const ProductDetails = ({ match }) => {
                   {product.producer && product.producer[0].direction}
                 </strong>
               </h4>
+              {/* //!producer id - NO SE SI PONERLO */}
+              {/* <h4 id="product_seller mb-3">
+                Producer id:{" "}
+                <strong>{product.producer && product.producer[0]._id}</strong>
+              </h4> */}
             </div>
           </div>
         </Fragment>

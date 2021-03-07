@@ -6,7 +6,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-} 
+}
 
 /* Scroll Bar */
 
@@ -49,7 +49,7 @@ nav {
 #view_btn {
   background-color: #febd69;
   padding: 0.4rem 1.8rem;
-  font-family: calibri;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 #cart {
@@ -126,7 +126,7 @@ footer {
 .rating-outer {
   display: inline-block;
   position: relative;
-  font-family: FontAwesome;
+  font-family: fontAwesome;
   color: #fdcc0d;
 }
 

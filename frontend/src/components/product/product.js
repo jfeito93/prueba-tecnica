@@ -35,7 +35,7 @@ const product = ({ product }) => {
             id="view_btn"
             className="btn btn-block"
           >
-            View Details /
+            Details
           </Link>
         </div>
       </div>

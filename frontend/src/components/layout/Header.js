@@ -1,5 +1,9 @@
 import React, { Fragment } from "react";
 
+import { Route } from "react-router-dom"; //! BUSCADOR
+
+import Search from "../layout/Search"; //! BUSCADOR //! para poder usar el "<Route />" de abajo
+
 import "../../App.css";
 
 const Header = () => {
@@ -12,21 +16,10 @@ const Header = () => {
             {/* <img src="./images/logoInventario.png" alt="logoInventario"/> */}
           </div>
         </div>
-
+        {/* //! BUSCADOR */}
         <div className="col-12 col-md-6 mt-2 mt-md-0">
-          <div className="input-group">
-            <input
-              type="text"
-              id="search_field"
-              className="form-control"
-              placeholder="Enter Product Name ..."
-            />
-            <div className="input-group-append">
-              <button id="search_btn" className="btn">
-                <i className="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
+          {/* //!esto se pone a continuacion ya que no podemos usar el "const Search" de Search.js como tal */}
+          <Route render={({ history })=> <Search history={history} />} /> 
         </div>
 
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">

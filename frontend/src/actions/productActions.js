@@ -12,16 +12,16 @@ import {
 
 //! Consecucion de todos los productos del backend
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (keyword = "",  currentPage = 1) => async (dispatch) => { //! BUSCADOR
   try {
     /* se intentara acudir a lo definido en ALL_PRODUCTS_REQUEST de reducders/productReducers.js = [] */
     dispatch({ type: ALL_PRODUCTS_REQUEST });
 
     /* //! Aqui se hace el get de la data de los productos */
-    const { data } = await axios.get("/api/v1/products");
+    const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}`); //! BUSCADOR
 
     /* si lo anterior funciona, entonces... */
-    /* //! es dispatch() no dispatchEvent() - ¿? */
+    /* //! es dispatch() no dispat chEvent() - ¿? */
     dispatch({
       type: ALL_PRODUCTS_SUCCESS,
       payload: data,

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+//!const Producer = require("../models/producer");
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -17,6 +18,21 @@ const productSchema = new mongoose.Schema({
     maxLength: [5, "Product name cannot exceed 5 characters"],
     default: 0.0,
   },
+
+  //! ESTO SI METES IMAGEN AL FINAL COMO PROPIEDAD DE PRODUCT
+  /*   images: [
+    {
+      public_id: {
+        type: String,
+        required: true,
+      },
+      url: {
+        type: String,
+        required: true,
+      },
+    },
+  ], */
+
   producer: [
     {
       name: {
@@ -40,11 +56,14 @@ const productSchema = new mongoose.Schema({
     },
   ],
   //!NO RESUELTO - RELACION TABLAS
-  /*   producer: {
+  /*     producer: {
     type: mongoose.Schema.ObjectId,
     ref: "Producer",
-    required: true, 
+    required: false, 
   }, */
+  //!intentos
+  /* required: false,  */
+  /* const Producer = mongoose.model('Producer', ProducerSchema); */
 });
-
+//!module.exports = Producer;
 module.exports = mongoose.model("product", productSchema);
